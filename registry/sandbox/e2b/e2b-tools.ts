@@ -33,3 +33,7 @@ export const codeExecutionTool = (options?: SandboxOpts) =>
 			return execution.text;
 		},
 	});
+
+export const e2bTools = (options?: SandboxOpts) => {
+	return [terminalCommandTool(options), codeExecutionTool(options)];
+};
