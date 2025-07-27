@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry.json",
+	"name": "toolkit",
+	"homepage": "https://toolkit.luggapugag.dev",
+	"items": [
+		{
+			"name": "e2b",
+			"type": "registry:lib",
+			"title": "E2B",
+			"description": "Execute bash commands in a linux terminal and return result",
+			"dependencies": ["@e2b/code-interpreter"],
+			"files": [
+				{
+					"path": "registry/sandbox/e2b/e2b-tools.ts",
+					"type": "registry:lib"
+				}
+			]
+		}
+	]
+}

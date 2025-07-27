@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "e2b",
+  "type": "registry:lib",
+  "title": "E2B",
+  "description": "Execute bash commands in a linux terminal and return result",
+  "dependencies": [
+    "@e2b/code-interpreter"
+  ],
+  "files": [
+    {
+      "path": "registry/sandbox/e2b/e2b-tools.ts",
+      "content": "import { tool } from \"ai\";\nimport { Sandbox, type SandboxOpts } from \"e2b\";\nimport { z } from \"zod\";\n\nexport const terminalCommandTool = (options?: SandboxOpts) =>\n\ttool({\n\t\tdescription: \"Execute a bash command and return the result\",\n\t\tinputSchema: z.object({\n\t\t\tcommand: z.string().describe(\"bash command to execute\"),\n\t\t}),\n\t\texecute: async ({ command }) => {\n\t\t\tconst sandbox = await Sandbox.create(options);\n\t\t\tconst { exitCode, stderr, stdout, error } =\n\t\t\t\tawait sandbox.commands.run(command);\n\t\t\tawait sandbox.kill();\n\t\t\treturn { exitCode, stderr, stdout, error };\n\t\t},\n\t});\n",
+      "type": "registry:lib"
+    }
+  ]
+}
