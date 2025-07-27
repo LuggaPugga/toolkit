@@ -41,6 +41,19 @@
 					"type": "registry:lib"
 				}
 			]
+		},
+		{
+			"name": "linkup",
+			"type": "registry:lib",
+			"title": "Linkup",
+			"description": "Search the internet and extract content from web pages",
+			"dependencies": ["linkup-sdk"],
+			"files": [
+				{
+					"path": "registry/search/linkup/linkup-tools.ts",
+					"type": "registry:lib"
+				}
+			]
 		}
 	]
 }
