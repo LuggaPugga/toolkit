@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "daytona",
+  "type": "registry:lib",
+  "title": "Daytona",
+  "description": "Execute code in a Daytona sandbox and return result",
+  "dependencies": [
+    "@daytonaio/sdk"
+  ],
+  "files": [
+    {
+      "path": "registry/sandbox/daytona/daytona-tools.ts",
+      "content": "import { Daytona, type DaytonaConfig } from \"@daytonaio/sdk\";\nimport { tool } from \"ai\";\nimport { z } from \"zod\";\n\nexport const codeExecutionTool = (options?: DaytonaConfig) => {\n\treturn tool({\n\t\tdescription: \"Execute a command in a Daytona sandbox\",\n\t\tinputSchema: z.object({\n\t\t\tlanguage: z.string().describe(\"The programming language to use\"),\n\t\t\tcommand: z.string().describe(\"The command to execute\"),\n\t\t}),\n\t\texecute: async ({ language, command }) => {\n\t\t\tconst daytona = new Daytona(options);\n\t\t\tconst sandbox = await daytona.create({\n\t\t\t\tlanguage: language,\n\t\t\t});\n\t\t\tconst response = await sandbox.process.codeRun(command);\n\t\t\tawait sandbox.delete();\n\t\t\treturn response.result;\n\t\t},\n\t});\n};\n",
+      "type": "registry:lib"
+    }
+  ]
+}
