@@ -1,12 +1,12 @@
+import { Sandbox, type SandboxOpts } from "@e2b/code-interpreter";
 import { tool } from "ai";
-import { Sandbox, type SandboxOpts } from "e2b";
 import { z } from "zod";
 
 export const terminalCommandTool = (options?: SandboxOpts) =>
 	tool({
-		description: "Execute a bash command and return the result",
+		description: "Execute a terminal command and return the result",
 		inputSchema: z.object({
-			command: z.string().describe("bash command to execute"),
+			command: z.string().describe("terminal command to execute"),
 		}),
 		execute: async ({ command }) => {
 			const sandbox = await Sandbox.create(options);
@@ -14,5 +14,22 @@ export const terminalCommandTool = (options?: SandboxOpts) =>
 				await sandbox.commands.run(command);
 			await sandbox.kill();
 			return { exitCode, stderr, stdout, error };
+		},
+	});
+
+export const codeExecutionTool = (options?: SandboxOpts) =>
+	tool({
+		description:
+			"Execute python code in a Jupyter notebook cell and return result",
+		inputSchema: z.object({
+			code: z
+				.string()
+				.describe("The python code to execute in a Jupyter notebook cell"),
+		}),
+		execute: async ({ code }) => {
+			const sandbox = await Sandbox.create(options);
+			const execution = await sandbox.runCode(code);
+			await sandbox.kill();
+			return execution.text;
 		},
 	});
