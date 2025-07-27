@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tavily",
+  "type": "registry:lib",
+  "title": "Tavily",
+  "description": "Search the internet and extract content from web pages",
+  "dependencies": [
+    "@tavily/core"
+  ],
+  "files": [
+    {
+      "path": "registry/search/tavily/tavily-tools.ts",
+      "content": "import {\r\n\ttype TavilyExtractOptions,\r\n\ttype TavilySearchOptions,\r\n\ttavily,\r\n} from \"@tavily/core\";\r\nimport { tool } from \"ai\";\r\nimport z from \"zod\";\r\n\r\nexport const searchTool = (apiKey: string, options?: TavilySearchOptions) =>\r\n\ttool({\r\n\t\tname: \"search\",\r\n\t\tdescription: \"Search for the internet by a query\",\r\n\t\targs: {\r\n\t\t\tquery: z.string(),\r\n\t\t},\r\n\t\texecute: async ({ query }) => {\r\n\t\t\tconst tvly = tavily({ apiKey: apiKey });\r\n\t\t\tconst results = await tvly.search(query, options);\r\n\t\t\treturn results;\r\n\t\t},\r\n\t});\r\n\r\nexport const extractTool = (apiKey: string, options?: TavilyExtractOptions) =>\r\n\ttool({\r\n\t\tname: \"extract\",\r\n\t\tdescription: \"Extract the content from one or multiple web pages\",\r\n\t\targs: {\r\n\t\t\turls: z.string().array,\r\n\t\t},\r\n\t\texecute: async ({ urls }) => {\r\n\t\t\tconst tvly = tavily({ apiKey: apiKey });\r\n\t\t\tconst results = await tvly.extract(urls, options);\r\n\t\t\treturn results;\r\n\t\t},\r\n\t});\r\n",
+      "type": "registry:lib"
+    }
+  ]
+}

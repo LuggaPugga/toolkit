@@ -28,6 +28,19 @@
 					"type": "registry:lib"
 				}
 			]
+		},
+		{
+			"name": "tavily",
+			"type": "registry:lib",
+			"title": "Tavily",
+			"description": "Search the internet and extract content from web pages",
+			"dependencies": ["@tavily/core"],
+			"files": [
+				{
+					"path": "registry/search/tavily/tavily-tools.ts",
+					"type": "registry:lib"
+				}
+			]
 		}
 	]
 }
