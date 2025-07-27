@@ -10,6 +10,7 @@
 		"format": "biome format --write"
 	},
 	"dependencies": {
+		"@e2b/code-interpreter": "^1.5.1",
 		"ai": "^5.0.0-beta.28",
 		"fumadocs-core": "15.6.6",
 		"fumadocs-mdx": "11.7.1",
