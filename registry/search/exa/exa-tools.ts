@@ -35,7 +35,7 @@ export const getContentsTool = (apiKey: string, options?: ContentsOptions) =>
 		name: "getContents",
 		description: "Extract clean text content from specific URLs. Useful when you have URLs and need their content.",
 		inputSchema: z.object({
-			urls: z.array(z.string().url()).describe("Array of URLs to extract content from"),
+			urls: z.array(z.url()).describe("Array of URLs to extract content from"),
 		}),
 		execute: async ({ urls }) => {
 			const exa = new Exa(apiKey);
