@@ -17,6 +17,7 @@
 		"@tavily/core": "^0.5.10",
 		"ai": "^5.0.0-beta.28",
 		"class-variance-authority": "^0.7.1",
+		"exa-js": "^1.8.25",
 		"fumadocs-core": "15.6.6",
 		"fumadocs-mdx": "11.7.1",
 		"fumadocs-ui": "15.6.6",
