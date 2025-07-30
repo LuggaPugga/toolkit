@@ -54,6 +54,19 @@
 					"type": "registry:lib"
 				}
 			]
+		},
+		{
+			"name": "exa",
+			"type": "registry:lib",
+			"title": "Exa",
+			"description": "Neural web search with content extraction, similarity finding, and URL content retrieval",
+			"dependencies": ["exa-js"],
+			"files": [
+				{
+					"path": "registry/search/exa/exa-tools.ts",
+					"type": "registry:lib"
+				}
+			]
 		}
 	]
 }
