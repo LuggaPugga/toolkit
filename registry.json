@@ -91,6 +91,18 @@
 					"type": "registry:lib"
 				}
 			]
+		},
+		{
+			"name": "read",
+			"type": "registry:lib",
+			"title": "Read Files",
+			"description": "Read files from the local filesystem.",
+			"files": [
+				{
+					"path": "registry/local/read-tools.ts",
+					"type": "registry:lib"
+				}
+			]
 		}
 	]
 }
