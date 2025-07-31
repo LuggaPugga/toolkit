@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fetch",
+  "type": "registry:lib",
+  "title": "Fetch",
+  "description": "Fetch content from a URL using simple HTTP requests",
+  "files": [
+    {
+      "path": "registry/misc/fetch-tool.ts",
+      "content": "import { tool } from \"ai\";\nimport { z } from \"zod\";\n\nexport const fetchTool = () =>\n\ttool({\n\t\tdescription: \"Fetch a URL and return the result as a string\",\n\t\tinputSchema: z.object({\n\t\t\turl: z.url().describe(\"The URL to fetch\"),\n\t\t}),\n\t\texecute: async ({ url }) => {\n\t\t\tconst response = await fetch(url);\n\t\t\treturn response.text();\n\t\t},\n\t});\n",
+      "type": "registry:lib"
+    }
+  ]
+}

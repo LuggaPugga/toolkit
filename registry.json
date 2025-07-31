@@ -67,6 +67,18 @@
 					"type": "registry:lib"
 				}
 			]
+		},
+		{
+			"name": "fetch",
+			"type": "registry:lib",
+			"title": "Fetch",
+			"description": "Fetch content from a URL using simple HTTP requests",
+			"files": [
+				{
+					"path": "registry/misc/fetch-tool.ts",
+					"type": "registry:lib"
+				}
+			]
 		}
 	]
 }
