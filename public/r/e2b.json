@@ -9,7 +9,7 @@
   ],
   "files": [
     {
-      "path": "registry/sandbox/e2b/e2b-tools.ts",
+      "path": "registry/sandbox/e2b-tools.ts",
       "content": "import { Sandbox, type SandboxOpts } from \"@e2b/code-interpreter\";\nimport { tool } from \"ai\";\nimport { z } from \"zod\";\n\nexport const terminalCommandTool = (options?: SandboxOpts) =>\n\ttool({\n\t\tdescription: \"Execute a terminal command and return the result\",\n\t\tinputSchema: z.object({\n\t\t\tcommand: z.string().describe(\"terminal command to execute\"),\n\t\t}),\n\t\texecute: async ({ command }) => {\n\t\t\tconst sandbox = await Sandbox.create(options);\n\t\t\tconst { exitCode, stderr, stdout, error } =\n\t\t\t\tawait sandbox.commands.run(command);\n\t\t\tawait sandbox.kill();\n\t\t\treturn { exitCode, stderr, stdout, error };\n\t\t},\n\t});\n\nexport const codeExecutionTool = (options?: SandboxOpts) =>\n\ttool({\n\t\tdescription:\n\t\t\t\"Execute python code in a Jupyter notebook cell and return result\",\n\t\tinputSchema: z.object({\n\t\t\tcode: z\n\t\t\t\t.string()\n\t\t\t\t.describe(\"The python code to execute in a Jupyter notebook cell\"),\n\t\t}),\n\t\texecute: async ({ code }) => {\n\t\t\tconst sandbox = await Sandbox.create(options);\n\t\t\tconst execution = await sandbox.runCode(code);\n\t\t\tawait sandbox.kill();\n\t\t\treturn execution.text;\n\t\t},\n\t});\n\nexport const e2bTools = (options?: SandboxOpts) => {\n\treturn [terminalCommandTool(options), codeExecutionTool(options)];\n};",
       "type": "registry:lib"
     }

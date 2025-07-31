@@ -11,7 +11,7 @@
 			"dependencies": ["@e2b/code-interpreter"],
 			"files": [
 				{
-					"path": "registry/sandbox/e2b/e2b-tools.ts",
+					"path": "registry/sandbox/e2b-tools.ts",
 					"type": "registry:lib"
 				}
 			]
@@ -24,7 +24,7 @@
 			"dependencies": ["@daytonaio/sdk"],
 			"files": [
 				{
-					"path": "registry/sandbox/daytona/daytona-tools.ts",
+					"path": "registry/sandbox/daytona-tools.ts",
 					"type": "registry:lib"
 				}
 			]
@@ -37,7 +37,7 @@
 			"dependencies": ["@tavily/core"],
 			"files": [
 				{
-					"path": "registry/search/tavily/tavily-tools.ts",
+					"path": "registry/search/tavily-tools.ts",
 					"type": "registry:lib"
 				}
 			]
@@ -50,7 +50,7 @@
 			"dependencies": ["linkup-sdk"],
 			"files": [
 				{
-					"path": "registry/search/linkup/linkup-tools.ts",
+					"path": "registry/search/linkup-tools.ts",
 					"type": "registry:lib"
 				}
 			]
@@ -63,7 +63,7 @@
 			"dependencies": ["exa-js"],
 			"files": [
 				{
-					"path": "registry/search/exa/exa-tools.ts",
+					"path": "registry/search/exa-tools.ts",
 					"type": "registry:lib"
 				}
 			]

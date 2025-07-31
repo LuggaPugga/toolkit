@@ -9,7 +9,7 @@
   ],
   "files": [
     {
-      "path": "registry/search/linkup/linkup-tools.ts",
+      "path": "registry/search/linkup-tools.ts",
       "content": "import { tool } from \"ai\";\r\nimport {\r\n\tLinkupClient,\r\n\ttype SearchOutputType,\r\n\ttype SearchParams,\r\n} from \"linkup-sdk\";\r\nimport z from \"zod\";\r\n\r\nexport const searchTool = (\r\n\tapiKey: string,\r\n\toutputType: SearchOutputType,\r\n\toptions?: Partial<SearchParams<typeof outputType>>,\r\n) =>\r\n\ttool({\r\n\t\tname: \"search\",\r\n\t\tdescription: \"Search for the internet by a query\",\r\n\t\tinputSchema: z.object({\r\n\t\t\tquery: z.string(),\r\n\t\t}),\r\n\t\texecute: async ({ query }) => {\r\n\t\t\tconst linkup = new LinkupClient({ apiKey: apiKey });\r\n\t\t\tconst results = await linkup.search({\r\n\t\t\t\tquery: query,\r\n\t\t\t\toutputType: outputType,\r\n\t\t\t\tdepth: options?.depth ?? \"standard\",\r\n\t\t\t\t...options,\r\n\t\t\t});\r\n\t\t\treturn results;\r\n\t\t},\r\n\t});\r\n",
       "type": "registry:lib"
     }
