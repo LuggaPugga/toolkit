@@ -79,6 +79,18 @@
 					"type": "registry:lib"
 				}
 			]
+		},
+		{
+			"name": "memory",
+			"type": "registry:lib",
+			"title": "Memory",
+			"description": "Store information in memory",
+			"files": [
+				{
+					"path": "registry/misc/memory.ts",
+					"type": "registry:lib"
+				}
+			]
 		}
 	]
 }
