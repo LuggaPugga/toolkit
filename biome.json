@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["!public/r/*"]
+		"includes": ["**", "!public/r/*"]
 	},
 	"formatter": {
 		"enabled": true,
@@ -15,6 +15,9 @@
 	},
 	"linter": {
 		"enabled": true,
+		"domains": {
+			"next": "recommended"
+		},
 		"rules": {
 			"recommended": true
 		}
