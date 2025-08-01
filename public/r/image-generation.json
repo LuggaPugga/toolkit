@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-generation",
+  "type": "registry:lib",
+  "title": "Image Generation",
+  "description": "Generate an image using a text prompt",
+  "dependencies": [
+    "ai"
+  ],
+  "files": [
+    {
+      "path": "registry/misc/image-generation.ts",
+      "content": "import {\r\n\texperimental_generateImage as generateImage,\r\n\ttype ImageModel,\r\n\ttool,\r\n} from \"ai\";\r\nimport { z } from \"zod\";\r\n\r\nexport const imageGenerationTool = (model: ImageModel) =>\r\n\ttool({\r\n\t\tname: \"imageGeneration\",\r\n\t\tdescription: \"Generate an image using a text prompt\",\r\n\t\tinputSchema: z.object({\r\n\t\t\tprompt: z.string(),\r\n\t\t\taspectRatio: z.enum([\"1:1\", \"16:9\", \"9:16\", \"4:3\", \"3:4\"]),\r\n\t\t}),\r\n\t\texecute: async ({ prompt, aspectRatio }) => {\r\n\t\t\tconst image = await generateImage({\r\n\t\t\t\tmodel,\r\n\t\t\t\tprompt,\r\n\t\t\t\taspectRatio,\r\n\t\t\t});\r\n\r\n\t\t\treturn image;\r\n\t\t},\r\n\t});\r\n",
+      "type": "registry:lib"
+    }
+  ]
+}

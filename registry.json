@@ -103,6 +103,19 @@
 					"type": "registry:lib"
 				}
 			]
+		},
+		{
+			"name": "image-generation",
+			"type": "registry:lib",
+			"title": "Image Generation",
+			"description": "Generate an image using a text prompt",
+			"dependencies": ["ai"],
+			"files": [
+				{
+					"path": "registry/misc/image-generation.ts",
+					"type": "registry:lib"
+				}
+			]
 		}
 	]
 }
