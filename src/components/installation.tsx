@@ -12,7 +12,11 @@ export const Installation: React.FC<{ name: string }> = async ({ name }) => {
 
 	return (
 		<>
-			<Tabs items={["npm", "pnpm", "yarn", "bun"]}>
+			<Tabs
+				items={["npm", "pnpm", "yarn", "bun"]}
+				persist
+				groupId="package-manager"
+			>
 				<Tab value="npm">
 					<DynamicCodeBlock
 						lang="bash"
