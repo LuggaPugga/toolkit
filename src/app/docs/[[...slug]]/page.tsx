@@ -25,7 +25,7 @@ export default async function Page(props: {
 					<LLMCopyButton markdownUrl={`${page.url}.mdx`} />
 					<ViewOptions
 						markdownUrl={`${page.url}.mdx`}
-						githubUrl={`https://github.com/LuggaPugga/tools/blob/main/src/app/docs/${page.path}`}
+						githubUrl={`https://github.com/LuggaPugga/toolkit/blob/main/content/docs/${page.path}`}
 					/>
 				</div>
 			</div>
