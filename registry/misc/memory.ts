@@ -1,7 +1,9 @@
 import { tool } from "ai";
 import { z } from "zod";
 
-export const memoryTool = (safeMemory: (memory: string) => Promise<void>) => {
+export const memoryTool = (
+	safeMemory: (memory: string) => Promise<boolean>,
+) => {
 	return tool({
 		name: "memory",
 		description:
@@ -10,8 +12,8 @@ export const memoryTool = (safeMemory: (memory: string) => Promise<void>) => {
 			memory: z.string().describe("The information to store in memory"),
 		}),
 		execute: async ({ memory }) => {
-			await safeMemory(memory);
-			return { success: true };
+			const success = await safeMemory(memory);
+			return { success };
 		},
 	});
 };

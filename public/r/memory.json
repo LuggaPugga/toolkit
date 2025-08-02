@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/misc/memory.ts",
-      "content": "import { tool } from \"ai\";\nimport { z } from \"zod\";\n\nexport const memoryTool = (safeMemory: (memory: string) => Promise<void>) => {\n\treturn tool({\n\t\tname: \"memory\",\n\t\tdescription:\n\t\t\t\"Store information in memory for later use. Only use this tool when you need to store important information that will be relevant for future conversations. Don't store useless or redundant information.\",\n\t\tinputSchema: z.object({\n\t\t\tmemory: z.string().describe(\"The information to store in memory\"),\n\t\t}),\n\t\texecute: async ({ memory }) => {\n\t\t\tawait safeMemory(memory);\n\t\t\treturn { success: true };\n\t\t},\n\t});\n};\n",
+      "content": "import { tool } from \"ai\";\nimport { z } from \"zod\";\n\nexport const memoryTool = (\n\tsafeMemory: (memory: string) => Promise<boolean>,\n) => {\n\treturn tool({\n\t\tname: \"memory\",\n\t\tdescription:\n\t\t\t\"Store information in memory for later use. Only use this tool when you need to store important information that will be relevant for future conversations. Don't store useless or redundant information.\",\n\t\tinputSchema: z.object({\n\t\t\tmemory: z.string().describe(\"The information to store in memory\"),\n\t\t}),\n\t\texecute: async ({ memory }) => {\n\t\t\tconst success = await safeMemory(memory);\n\t\t\treturn { success };\n\t\t},\n\t});\n};\n",
       "type": "registry:lib"
     }
   ]
