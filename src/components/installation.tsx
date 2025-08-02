@@ -5,7 +5,7 @@ import type * as React from "react";
 
 export const Installation: React.FC<{ name: string }> = async ({ name }) => {
 	const registryItem = (await import(`../../public/r/${name}.json`)).default;
-	const baseUrl = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL;
+	const baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`;
 	if (!registryItem?.files?.[0]?.content) {
 		return null;
 	}
