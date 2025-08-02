@@ -1,26 +1,33 @@
-import Exa, { type ContentsOptions, type FindSimilarOptions, type RegularSearchOptions } from "exa-js";
 import { tool } from "ai";
+import Exa, {
+	type ContentsOptions,
+	type FindSimilarOptions,
+	type RegularSearchOptions,
+} from "exa-js";
 import z from "zod";
 
 const ExaCategoryEnum = z.enum([
 	"company",
-	"research paper", 
+	"research paper",
 	"news",
 	"pdf",
 	"github",
 	"tweet",
 	"personal site",
 	"linkedin profile",
-	"financial report"
+	"financial report",
 ]);
 
 export const searchTool = (apiKey: string, options?: RegularSearchOptions) =>
 	tool({
 		name: "search",
-		description: "Search the web using Exa's neural or keyword search. Automatically chooses the best search type for the query.",
+		description:
+			"Search the web using Exa's neural or keyword search. Automatically chooses the best search type for the query.",
 		inputSchema: z.object({
 			query: z.string().describe("The search query"),
-			category: ExaCategoryEnum.optional().describe("Focus search on specific content category"),
+			category: ExaCategoryEnum.optional().describe(
+				"Focus search on specific content category",
+			),
 		}),
 		execute: async ({ query }) => {
 			const exa = new Exa(apiKey);
@@ -29,11 +36,11 @@ export const searchTool = (apiKey: string, options?: RegularSearchOptions) =>
 		},
 	});
 
-
 export const getContentsTool = (apiKey: string, options?: ContentsOptions) =>
 	tool({
 		name: "getContents",
-		description: "Extract clean text content from specific URLs. Useful when you have URLs and need their content.",
+		description:
+			"Extract clean text content from specific URLs. Useful when you have URLs and need their content.",
 		inputSchema: z.object({
 			urls: z.array(z.url()).describe("Array of URLs to extract content from"),
 		}),
@@ -47,7 +54,8 @@ export const getContentsTool = (apiKey: string, options?: ContentsOptions) =>
 export const findSimilarTool = (apiKey: string, options?: FindSimilarOptions) =>
 	tool({
 		name: "findSimilar",
-		description: "Find web pages similar to a given URL. Great for finding related content or alternatives.",
+		description:
+			"Find web pages similar to a given URL. Great for finding related content or alternatives.",
 		inputSchema: z.object({
 			url: z.url().describe("The URL to find similar pages for"),
 		}),
@@ -58,10 +66,14 @@ export const findSimilarTool = (apiKey: string, options?: FindSimilarOptions) =>
 		},
 	});
 
-export const findSimilarAndContentsTool = (apiKey: string, options?: FindSimilarOptions & ContentsOptions) =>
+export const findSimilarAndContentsTool = (
+	apiKey: string,
+	options?: FindSimilarOptions & ContentsOptions,
+) =>
 	tool({
 		name: "findSimilarAndContents",
-		description: "Find web pages similar to a given URL and return the contents of the pages.",
+		description:
+			"Find web pages similar to a given URL and return the contents of the pages.",
 		inputSchema: z.object({
 			url: z.url().describe("The URL to find similar pages for"),
 		}),
