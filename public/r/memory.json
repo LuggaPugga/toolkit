@@ -4,6 +4,9 @@
   "type": "registry:lib",
   "title": "Memory",
   "description": "Store information in memory",
+  "dependencies": [
+    "ai"
+  ],
   "files": [
     {
       "path": "registry/misc/memory.ts",

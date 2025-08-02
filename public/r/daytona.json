@@ -5,6 +5,7 @@
   "title": "Daytona",
   "description": "Execute code in a Daytona sandbox and return result",
   "dependencies": [
+    "ai",
     "@daytonaio/sdk"
   ],
   "files": [

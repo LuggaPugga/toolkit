@@ -5,6 +5,7 @@
   "title": "Linkup",
   "description": "Search the internet and extract content from web pages",
   "dependencies": [
+    "ai",
     "linkup-sdk"
   ],
   "files": [

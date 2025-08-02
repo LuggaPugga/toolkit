@@ -5,6 +5,7 @@
   "title": "Exa",
   "description": "Neural web search with content extraction, similarity finding, and URL content retrieval",
   "dependencies": [
+    "ai",
     "exa-js"
   ],
   "files": [

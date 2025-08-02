@@ -4,6 +4,9 @@
   "type": "registry:lib",
   "title": "Read Files",
   "description": "Read files from the local filesystem.",
+  "dependencies": [
+    "ai"
+  ],
   "files": [
     {
       "path": "registry/local/read-tools.ts",

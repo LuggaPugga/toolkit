@@ -8,7 +8,7 @@
 			"type": "registry:lib",
 			"title": "E2B",
 			"description": "Execute bash commands in a linux terminal and return result",
-			"dependencies": ["@e2b/code-interpreter"],
+			"dependencies": ["ai", "@e2b/code-interpreter"],
 			"files": [
 				{
 					"path": "registry/sandbox/e2b-tools.ts",
@@ -21,7 +21,7 @@
 			"type": "registry:lib",
 			"title": "Daytona",
 			"description": "Execute code in a Daytona sandbox and return result",
-			"dependencies": ["@daytonaio/sdk"],
+			"dependencies": ["ai", "@daytonaio/sdk"],
 			"files": [
 				{
 					"path": "registry/sandbox/daytona-tools.ts",
@@ -34,7 +34,7 @@
 			"type": "registry:lib",
 			"title": "Tavily",
 			"description": "Search the internet and extract content from web pages",
-			"dependencies": ["@tavily/core"],
+			"dependencies": ["ai", "@tavily/core"],
 			"files": [
 				{
 					"path": "registry/search/tavily-tools.ts",
@@ -47,7 +47,7 @@
 			"type": "registry:lib",
 			"title": "Linkup",
 			"description": "Search the internet and extract content from web pages",
-			"dependencies": ["linkup-sdk"],
+			"dependencies": ["ai", "linkup-sdk"],
 			"files": [
 				{
 					"path": "registry/search/linkup-tools.ts",
@@ -60,7 +60,7 @@
 			"type": "registry:lib",
 			"title": "Exa",
 			"description": "Neural web search with content extraction, similarity finding, and URL content retrieval",
-			"dependencies": ["exa-js"],
+			"dependencies": ["ai", "exa-js"],
 			"files": [
 				{
 					"path": "registry/search/exa-tools.ts",
@@ -73,6 +73,7 @@
 			"type": "registry:lib",
 			"title": "Fetch",
 			"description": "Fetch content from a URL using simple HTTP requests",
+			"dependencies": ["ai"],
 			"files": [
 				{
 					"path": "registry/misc/fetch-tool.ts",
@@ -85,6 +86,7 @@
 			"type": "registry:lib",
 			"title": "Memory",
 			"description": "Store information in memory",
+			"dependencies": ["ai"],
 			"files": [
 				{
 					"path": "registry/misc/memory.ts",
@@ -97,6 +99,7 @@
 			"type": "registry:lib",
 			"title": "Read Files",
 			"description": "Read files from the local filesystem.",
+			"dependencies": ["ai"],
 			"files": [
 				{
 					"path": "registry/local/read-tools.ts",

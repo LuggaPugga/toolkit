@@ -5,6 +5,7 @@
   "title": "E2B",
   "description": "Execute bash commands in a linux terminal and return result",
   "dependencies": [
+    "ai",
     "@e2b/code-interpreter"
   ],
   "files": [

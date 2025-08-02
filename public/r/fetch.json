@@ -4,6 +4,9 @@
   "type": "registry:lib",
   "title": "Fetch",
   "description": "Fetch content from a URL using simple HTTP requests",
+  "dependencies": [
+    "ai"
+  ],
   "files": [
     {
       "path": "registry/misc/fetch-tool.ts",
