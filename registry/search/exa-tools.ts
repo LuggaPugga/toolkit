@@ -54,8 +54,7 @@ export const getContentsTool = (apiKey: string, options?: ContentsOptions) =>
 export const findSimilarTool = (apiKey: string, options?: FindSimilarOptions) =>
 	tool({
 		name: "findSimilar",
-		description:
-			"Find web pages similar to a given URL. Great for finding related content or alternatives.",
+		description: "Find web pages similar to a given URL.",
 		inputSchema: z.object({
 			url: z.url().describe("The URL to find similar pages for"),
 		}),
