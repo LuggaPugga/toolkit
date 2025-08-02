@@ -7,7 +7,7 @@ export const codeExecutionTool = (options?: DaytonaConfig) => {
 		description: "Execute a command in a Daytona sandbox",
 		inputSchema: z.object({
 			language: z
-				.enum(["java", "python", "typescript", "javascript"])
+				.enum(["python", "typescript", "javascript"])
 				.describe("The programming language to use"),
 			command: z.string().describe("The command to execute"),
 		}),
