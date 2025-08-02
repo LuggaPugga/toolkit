@@ -1,7 +1,7 @@
+import { readFile as fsReadFile, readdir } from "node:fs/promises";
+import { resolve } from "node:path";
 import { tool } from "ai";
 import { z } from "zod";
-import { readFile as fsReadFile, readdir } from "fs/promises";
-import { resolve } from "path";
 
 /*
 This is a tool that allows the AI to read files from the filesystem.
