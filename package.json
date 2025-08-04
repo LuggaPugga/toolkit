@@ -19,7 +19,7 @@
 		"ai": "^5.0.0",
 		"class-variance-authority": "^0.7.1",
 		"exa-js": "^1.8.25",
-		"fumadocs-core": "15.6.7",
+		"fumadocs-core": "15.6.8",
 		"fumadocs-mdx": "11.7.3",
 		"fumadocs-ui": "15.6.8",
 		"linkup-sdk": "^1.1.0",
