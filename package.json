@@ -13,7 +13,7 @@
 	},
 	"dependencies": {
 		"@daytonaio/sdk": "^0.25.0",
-		"@e2b/code-interpreter": "^1.5.1",
+		"@e2b/code-interpreter": "^2.0.0",
 		"@tavily/core": "^0.5.10",
 		"@vercel/analytics": "^1.5.0",
 		"ai": "^5.0.0",
